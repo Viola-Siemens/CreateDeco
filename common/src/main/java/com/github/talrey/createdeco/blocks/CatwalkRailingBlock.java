@@ -73,7 +73,7 @@ public class CatwalkRailingBlock extends Block implements IWrenchable, ProperWat
     var x = subbox.x;
     var z = subbox.z;
 
-    if (level.isClientSide()) return InteractionResult.PASS;
+    if (level.isClientSide() || face == Direction.DOWN) return InteractionResult.PASS;
 
     //check if the top face is wrenched, remove side
     if (face == Direction.UP) {

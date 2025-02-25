@@ -93,6 +93,14 @@
     },
     {
       "apply": {
+        "model": "createdeco:block/industrial_iron_mesh_fence_post"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
         "model": "createdeco:block/industrial_iron_mesh_fence_side"
       },
       "when": {

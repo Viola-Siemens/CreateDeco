@@ -16,6 +16,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
@@ -81,7 +82,7 @@ public class Doors {
       })
       .tag(BlockTags.MINEABLE_WITH_PICKAXE)
       .tag(BlockTags.DOORS)
-      .item()
+      .item().tag(ItemTags.DOORS)
       .model((ctx,prov)->BlockStateGenerator.doorItem(reg, metal, ctx, prov))
       .properties(props -> (metal.contains("Netherite") ? props.fireResistant() : props))
       .build();
@@ -117,7 +118,7 @@ public class Doors {
       .tag(BlockTags.MINEABLE_WITH_PICKAXE)
       .tag(BlockTags.TRAPDOORS)
       .addLayer(()-> RenderType::cutoutMipped)
-      .item()
+      .item().tag(ItemTags.TRAPDOORS)
       .model((ctx,prov)->BlockStateGenerator.trapdoorItem(reg, metal, ctx, prov))
       .build();
   }

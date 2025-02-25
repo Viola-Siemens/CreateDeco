@@ -15,6 +15,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -128,7 +129,7 @@ public class Bricks {
           );
           recipeStonecuttingStair(finalName, color, prefix, ctx, prov);
         })
-        .simpleItem()
+        .item().tag(ItemTags.STAIRS).build()
       );
     }
     return ret;
@@ -231,7 +232,7 @@ public class Bricks {
                 );
               recipeStonecuttingWall(finalName, color, prefix, ctx, prov);
               })
-          .item().model((ctx, prov) -> BlockStateGenerator.brickWallItem(ctx,prov, color)).build()
+          .item().tag(ItemTags.WALLS).model((ctx, prov) -> BlockStateGenerator.brickWallItem(ctx,prov, color)).build()
       );
     }
     return ret;

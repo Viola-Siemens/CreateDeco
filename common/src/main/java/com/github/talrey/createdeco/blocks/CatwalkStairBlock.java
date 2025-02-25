@@ -14,6 +14,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -152,5 +153,9 @@ public class CatwalkStairBlock extends Block implements IWrenchable, ProperWater
     playRemoveSound(level, pos);
     return InteractionResult.SUCCESS;
 
+  }
+
+  public BlockState rotate(BlockState state, Rotation rotation) {
+    return state.setValue(BlockStateProperties.HORIZONTAL_FACING, rotation.rotate(state.getValue(BlockStateProperties.HORIZONTAL_FACING)));
   }
 }

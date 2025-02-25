@@ -8,10 +8,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 
 import javax.annotation.Nullable;
 
@@ -20,7 +22,13 @@ public class ShippingContainerBlock extends ItemVaultBlock {
 
   public ShippingContainerBlock (Properties properties, DyeColor color) {
     super(properties);
+    registerDefaultState(defaultBlockState().setValue(LARGE, false));
     COLOR = color;
+  }
+
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    super.createBlockStateDefinition(pBuilder);
   }
 
   public static DyeColor getColor (BlockState state) {
