@@ -66,12 +66,13 @@ public class SupportBlock extends DirectionalBlock implements ProperWaterloggedB
 
   public SupportBlock (Properties props) {
     super(props);
+    this.registerDefaultState(this.defaultBlockState()
+            .setValue(WATERLOGGED, false));
   }
 
   @Override
   protected void createBlockStateDefinition (StateDefinition.Builder<Block, BlockState> builder) {
-    builder.add(FACING);
-    builder.add(BlockStateProperties.WATERLOGGED);
+    builder.add(BlockStateProperties.WATERLOGGED, FACING);
   }
 
   @Override

@@ -173,6 +173,8 @@ public class BlockStateGeneratorImpl {
       } // else 'x' don't care
       part.end();
     }
+    builder.part().modelFile(center).addModel()
+      .condition(BlockStateProperties.UP, true).end();
     builder.part().modelFile(side).addModel()
       .condition(BlockStateProperties.EAST, true).end();
     builder.part().modelFile(side)

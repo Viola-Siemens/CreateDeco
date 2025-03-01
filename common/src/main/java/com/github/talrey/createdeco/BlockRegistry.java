@@ -63,7 +63,7 @@ public class BlockRegistry {
 	public static HashMap<String, BlockEntry<TrapDoorBlock>> TRAPDOORS  = new HashMap<>();
 	public static HashMap<String, BlockEntry<IronBarsBlock>> BARS       = new HashMap<>();
 	public static HashMap<String, BlockEntry<IronBarsBlock>> BAR_PANELS = new HashMap<>();
-	public static HashMap<String, BlockEntry<FenceBlock>> MESH_FENCES   = new HashMap<>();
+	public static HashMap<String, BlockEntry<MeshFenceBlock>> MESH_FENCES   = new HashMap<>();
 	public static HashMap<String, BlockEntry<ConnectedPillarBlock>> SHEET_METAL_PILLARS = new HashMap<>();
 
 	public static HashMap<String, BlockEntry<CatwalkBlock>> CATWALKS                = new HashMap<>();
@@ -314,7 +314,6 @@ public class BlockRegistry {
 			PLACARDS.put(color, CreateDecoMod.REGISTRATE.block(regName, DyedPlacardBlock::new)
 					.initialProperties(SharedProperties::copperMetal)
 					.transform(pickaxeOnly())
-					.tag(AllTags.AllBlockTags.SAFE_NBT.tag)
 					.blockstate((ctx,prov)->BlockStateGenerator.placard(CreateDecoMod.REGISTRATE, color, ctx, prov))
 					.simpleItem()
 					.recipe( (ctx, prov)-> {
