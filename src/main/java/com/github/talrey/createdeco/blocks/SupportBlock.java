@@ -123,6 +123,16 @@ public class SupportBlock extends DirectionalBlock implements SimpleWaterloggedB
     };
   }
 
+  @Override
+  public BlockState rotate(BlockState state, Rotation rotation) {
+    return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+  }
+
+  @Override
+  public BlockState mirror(BlockState state, Mirror mirror) {
+    return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
+  }
+
   public static boolean isSupportBlock (ItemStack test) {
     return (test.getItem() instanceof BlockItem)
       && isSupportBlock(((BlockItem)test.getItem()).getBlock());
